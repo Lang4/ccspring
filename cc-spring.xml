@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <bean name="111" class="mysqldb" creatortype="1">
+    <connection dbname="test" host="127.0.0.1" user="root" passwd="123456" port="3368"/>
+  </bean>
+</config>
