@@ -20,7 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -52,14 +52,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>mysql/include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>mysql/include;.;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>mysql/lib/libmysqlclient_win;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mysqlclient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>mysql/lib/libmysqlclient_win;libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlclient.lib;log4cxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -92,9 +92,11 @@
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="sqlite3ext.h" />
     <ClInclude Include="tinyxml2.h" />
+    <ClInclude Include="zLoggerImp.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ccarchive.cpp" />
+    <ClCompile Include="cclog.cpp" />
     <ClCompile Include="ccmemory.cpp" />
     <ClCompile Include="ccnetwork.cpp" />
     <ClCompile Include="ccnetwork_libuv.cpp" />
@@ -107,6 +109,7 @@
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="testarchive.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
+    <ClCompile Include="zLoggerImp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="cc-spring.xml" />

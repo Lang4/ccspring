@@ -32,7 +32,7 @@ namespace ccs{
 void ObjectFactory::init(const char *filename)
 {
 	_initCreators();
-	IXML xml;
+	XML xml;
 	xml.imp(); // 设置默认实现
 
 	if (xml->initFrom(filename))

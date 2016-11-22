@@ -240,6 +240,7 @@ public:
 	{
 		return new T();
 	}
+	virtual void *self(){ return static_cast<T*>(this); }
 	virtual void* clone_buffer(void *buffer, size_t size)
 	{
 		if (size != sizeof(T)) return 0;
@@ -283,7 +284,7 @@ private:
 			SINGLETON = 1, // 单例的方式产生对象
 			CLONE = 2, // 克隆的方式产生对象 
 		};
-		int type= CREATE_NULL;
+		int type = SINGLETON;
 	};
 	std::unordered_map<std::string,std::vector<void *> > _free_beans;
 	std::unordered_map<std::string, BeanInfo > _beans;

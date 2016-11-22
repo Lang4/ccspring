@@ -2,6 +2,7 @@
 #include "tinyxml2.h"
 #include <vector>
 #include <map>
+#include "ccspring.h"
 class Tiny2Node : public INode{
 public:
 	Tiny2Node(tinyxml2::XMLElement *node) :_node(node)
@@ -54,7 +55,7 @@ private:
 	}
 };
 
-class Tiny2Doc : public IXML{
+class Tiny2Doc : public IXML, public Creator<Tiny2Doc>{
 public:
 	bool initFrom(const char *filename)
 	{
@@ -74,7 +75,9 @@ private:
 	Tiny2Node root;
 };
 
-void IXML::imp()
+void XML::imp()
 {
 	setImp<Tiny2Doc>();
 }
+
+CREATOR("tinyxml2",Tiny2Doc);

@@ -51,6 +51,9 @@
     <ClInclude Include="cclog.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="zLoggerImp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -91,6 +94,12 @@
     </ClCompile>
     <ClCompile Include="testarchive.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cclog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="zLoggerImp.cpp">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -3,4 +3,9 @@
   <bean name="111" class="mysqldb" creatortype="1">
     <connection dbname="test" host="127.0.0.1" user="root" passwd="123456" port="3368"/>
   </bean>
+  <bean name="log" class="log4cxx" creatortype="1">
+    <info name="We"/>
+  </bean>
+  <bean name="xml" class="tinyxml2" creatortype="1"/>
+  
 </config>

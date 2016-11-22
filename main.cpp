@@ -1,7 +1,7 @@
 #include "ccspring.h"
 #include "ccorm.h"
 #include "ccarchive.h"
- 
+#include "cclog.h"
 int main()
 {
  
@@ -26,19 +26,35 @@ int main()
 	/**
 	 * 关于配置
 	 **/
-
+	IXML *xml = ccs::getBean<IXML>("xml");
+	if (xml)
+	{
+		if (xml->initFrom("cc-spring.xml"))
+		{
+			INode *node = xml->firstNode("bean");
+			if (node)
+			{
+				printf("First Bean name is %s\n",node->getStr("name").c_str());
+			}
+		}
+	}
 	/**
 	 * 关于日志
 	 **/
+	ILog * logger = ccs::getBean<ILog>("log");
+
+	logger->debug("Hello,%s a=%d", "world",100);
 
 	/**
 	 * 关于TCP网络
 	 */
-	
+	// github 上
 
 	/**
 	 * 关于序列化
 	 */
+
+	// test archive.cpp
 
 
 	/**

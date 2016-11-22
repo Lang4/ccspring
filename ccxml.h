@@ -55,10 +55,16 @@ public:
 
 class IXML{
 public:
-	IXML * operator->()
+	virtual bool initFrom(const char *name) = 0;
+	virtual INode* firstNode(const char *name) = 0;
+};
+
+class XML : public IXML{
+public:
+	XML * operator->()
 	{
 		if (_buffer.empty()) return 0;
-		return static_cast<IXML*>((void*)&_buffer[0]);
+		return static_cast<XML*>((void*)&_buffer[0]);
 	}
 	virtual bool initFrom(const char *name) {
 		return false;
